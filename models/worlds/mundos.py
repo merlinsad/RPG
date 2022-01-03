@@ -1,7 +1,8 @@
-class Mundos:
-    def __init__(self: object, nome: str, classe: str) -> None:
+class World:
+    def __init__(self: object, nome: str, classe: str, historia: str) -> None:
         self.__nome: str = nome
         self.__classe: str = classe
+        self.__historia: str = historia
 
     @property
     def nome(self: object) -> str:
@@ -16,4 +17,4 @@ class Mundos:
         return self.__historia
 
     def __str__(self) -> str:
-        return f'Mapa: {self.nome}\nClasse: {self.classe}\nHistória: {self.história}'
+        return f'Mapa: {self.nome}\nClasse: {self.classe}\nHistória: {self.historia}'

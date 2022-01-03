@@ -1,18 +1,25 @@
 from time import sleep
-from typing import List, Dict
+from typing import List
 
-
-from models.jogador import Jogador
-from models.mundos import Mundos
+from models.players.jogador import Jogador
+from models.classes.arquer import Arquer
+from models.classes.mage import Mage
+from models.classes.tank import Tank
+from models.classes.warrior import Warrior
 
 jogadores: List[Jogador] = []
+arquers: List[Arquer] = []
+mages: List[Mage] = []
+warriors: List[Warrior] = []
+tanks: List[Tank] = []
+
 
 def main() -> None:
     menu()
 
+
 def menu() -> None:
     print("-- Welcome to the world of Parades --")
-
 
     print('1 - Logar')
     print('2 - Cadastrar')
@@ -34,25 +41,36 @@ def menu() -> None:
         sleep(2)
         menu()
 
-def logar() -> None:
-    pass
 
-def cadastrar() -> None:
+def logar() -> None:
+    if len(jogadores) > 0:
+        pass
+    else:
+        pass
+
+
+def cadastrar():
     print(' -- Cadastro -- ')
 
     nome: str = input('Qual seu nome? ')
     print('-------------------')    
     sleep(1)
-    classe: str = input(f'{nome}, e qual seria sua classe?\n- Mago\n- Guerreiro\n- Arqueiro\n- Tanker\nQual sua escolha? ')
+    classe: str = input(f'{nome}, e qual seria sua classe?\n- Mago\n- Guerreiro\n- Arqueiro\n- Tanker\n'
+                        f'Qual sua escolha? ')
     print('-------------------')
     sleep(1)
-    level: int = input("Qual seu level?\n- Novato\n- Pleno\n- Profissional\n")
+    categoria: str = input("Qual seu level?\n- Novato\n- Pleno\n- Profissional\n")
     print('-------------------')
 
-    jogador: Jogador = Jogador(nome, classe, level)
+    jogador: Jogador = Jogador(nome, classe, categoria)
+    arquer: Arquer = Arquer(nome, classe, categoria)
+    mage: Mage = Mage(nome, classe, categoria)
+    tank: Tank = Tank(nome, classe, categoria)
+    warrior: Warrior = Warrior(nome, classe, categoria)
 
     if classe == 'Mago':
         jogadores.append(jogador)
+        arquers.append(arquer)
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
@@ -80,6 +98,7 @@ def cadastrar() -> None:
         sleep(3)
         menu()
 
+
 def rank() -> None:
     if len(jogadores) > 0:
         print("Listagem de contas")
@@ -94,8 +113,10 @@ def rank() -> None:
     sleep(2)
     menu()
 
+
 def sair() -> None:
     exit()
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,8 @@
-from models.jogador import Jogador
-from models.mundos import Mundos
+from typing import List
+from models.worlds.mundos import World
+
+worlds: List[World] = []
+
 
 def main() -> None:
     menu()
@@ -14,6 +17,7 @@ def menu() -> None:
     print('2 - Inserir conta ADM')
     print('3 - Adicionar pontos ao jogador')
     print('4 - Alterar informação do jogador')
+    print('5 - Adicionar história')
 
     def deletar_conta() -> None:
         pass
@@ -28,4 +32,4 @@ def menu() -> None:
         pass
 
     if __name__ == '__main__':
-        main()
+        menu()
