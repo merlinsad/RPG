@@ -1,18 +1,20 @@
 class Warrior:
-    contador: int = 1
-    contador_level: int = 1
+    codigo: int = 1
+    level_warrior: int = 1
+    atack_warrior: int = 250
+    life_warrior: int = 400
+    defense_warrior: int = 300
+    magic_warrior: int = 250
 
-    def __init__(self: object, historia: str, ataque: int, vida: int
-                 , defesa: int, magia: int) -> None:
+    def __init__(self: object, historia: str, name: str, categoria: str) -> None:
+        self.__codigo: int = Warrior.codigo
+        self.__name: str = name
         self.__historia: str = historia
-        self.__ataque: int = ataque
-        self.__vida: int = vida
-        self.__defesa: int = defesa
-        self.__magia: int = magia
-
-    def __str__(self: object) -> str:
-        return f'Historia: {self.historia}\nAtaque: {self.ataque}\nDefesa: {self.defesa}\n'\
-               f'Vida: {self.vida}\nMagia: {self.magia}'
+        self.__ataque: int = Warrior.atack_warrior
+        self.__vida: int = Warrior.life_warrior
+        self.__defesa: int = Warrior.defense_warrior
+        self.__magia: int = Warrior.magic_warrior
+        self.__categoria: str = categoria
 
     @property
     def historia(self: object) -> str:
@@ -33,3 +35,11 @@ class Warrior:
     @property
     def magia(self: object) -> int:
         return self.__magia
+
+    @property
+    def categoria(self: object) -> str:
+        return self.__categoria
+
+    def __str__(self: object) -> str:
+        return f'Historia: {self.historia}\nAtaque: {self.ataque}\nDefesa: {self.defesa}\n'\
+               f'Vida: {self.vida}\nMagia: {self.magia}'

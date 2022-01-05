@@ -1,14 +1,20 @@
 class Mage:
-    contador: int = 1
-    contador_level: int = 1
+    codigo: int = 1
+    level_mage: int = 1
+    atack_mage: int = 250
+    life_mage: int = 400
+    defense_mage: int = 300
+    magic_mage: int = 250
 
-    def __init__(self: object, historia: str, ataque: int, vida: int
-                 , defesa: int, magia: int) -> None:
+    def __init__(self: object, historia: str, nome: str, categoria: str) -> None:
+        self.__nome: str = nome
+        self.__codigo: int = Mage.codigo
         self.__historia: str = historia
-        self.__ataque: int = ataque
-        self.__vida: int = vida
-        self.__defesa: int = defesa
-        self.__magia: int = magia
+        self.__ataque: int = Mage.atack_mage
+        self.__vida: int = Mage.life_mage
+        self.__defesa: int = Mage.defense_mage
+        self.__magia: int = Mage.magic_mage
+        self.__categoria: str = categoria
 
     def __str__(self: object) -> str:
         return f'Historia: {self.historia}\nAtaque: {self.ataque}\nDefesa: {self.defesa}\n' \
@@ -33,3 +39,11 @@ class Mage:
     @property
     def magia(self: object) -> int:
         return self.__magia
+
+    @property
+    def nome(self: object) -> str:
+        return self.__nome
+
+    @property
+    def categoria(self: object) -> str:
+        return self.__categoria

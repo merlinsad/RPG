@@ -24,7 +24,8 @@ def menu() -> None:
     print('1 - Logar')
     print('2 - Cadastrar')
     print('3 - Rank')
-    print('4 - Sair do jogo')
+    print('4 - Rank por classe')
+    print('5 - Sair do jogo')
 
     opcao: int = int(input("Escolha a opção: "))
 
@@ -35,6 +36,8 @@ def menu() -> None:
     elif opcao == 3:
         rank()
     elif opcao == 4:
+        rank2()
+    elif opcao == 5:
         sair()
     else:
         print("Nenhuma opção válida selecionada.")
@@ -70,25 +73,28 @@ def cadastrar():
 
     if classe == 'Mago':
         jogadores.append(jogador)
-        arquers.append(arquer)
+        mages.append(mage)
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Guerreiro':
         jogadores.append(jogador)
+        warriors.append(warrior)
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Arqueiro':
         jogadores.append(jogador)
+        arquers.append(arquer)
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Tanker':
         jogadores.append(jogador)
+        tanks.append(tank)
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
@@ -106,6 +112,21 @@ def rank() -> None:
         for jogador in jogadores:
             print('-----------------')
             print(jogador)
+            print('-----------------')
+            sleep(1)
+    else:
+        print('Não existem contas cadastradas.')
+    sleep(2)
+    menu()
+
+
+def rank2() -> None:
+    if len(jogadores) > 0:
+        print("Listagem de contas")
+
+        for mage in mages:
+            print('-----------------')
+            print(mage)
             print('-----------------')
             sleep(1)
     else:

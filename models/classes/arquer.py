@@ -1,18 +1,18 @@
 class Arquer:
     codigo: int = 1
     level_arquer: int = 1
-    ataque_arquer: int = 250
-    vida_arquer: int = 400
-    defesa_arquer: int = 300
-    magia_arquer: int = 250
+    atack_arquer: int = 250
+    life_arquer: int = 400
+    defense_arquer: int = 300
+    magic_arquer: int = 250
 
     def __init__(self: object, historia: str, nome: str, categoria: str) -> None:
         self.__nome: str = nome
         self.__historia: str = historia
-        self.__ataque: int = Arquer.ataque_arquer
-        self.__vida: int = Arquer.vida_arquer
-        self.__defesa: int = Arquer.defesa_arquer
-        self.__magia: int = Arquer.magia_arquer
+        self.__ataque: int = Arquer.atack_arquer
+        self.__vida: int = Arquer.life_arquer
+        self.__defesa: int = Arquer.defense_arquer
+        self.__magia: int = Arquer.magic_arquer
         self.__categoria: str = categoria
         self.__level: int = Arquer.level_arquer
 
