@@ -63,10 +63,9 @@ def cadastrar():
     print('-------------------')
     sleep(1)
     categoria: str = input("Qual seu level?\n- Novato\n- Pleno\n- Profissional\n---> ")
-    print('-------------------')
 
     jogador: Jogador = Jogador(nome, classe, categoria)
-    arquer: Arquer = Arquer(nome, classe, categoria)
+    arquer: Arquer = Arquer(nome, classe)
     mage: Mage = Mage(nome, classe, categoria)
     tank: Tank = Tank(nome, classe, categoria)
     warrior: Warrior = Warrior(nome, classe, categoria)
@@ -95,6 +94,7 @@ def cadastrar():
     elif classe == 'Tanker':
         jogadores.append(jogador)
         tanks.append(tank)
+        print('-------------------')
         print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
@@ -116,8 +116,10 @@ def rank() -> None:
             sleep(1)
     else:
         print('Não existem contas cadastradas.')
-    sleep(2)
-    menu()
+    retorno: str = input('If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
+    if retorno == '':
+        sleep(2)
+        menu()
 
 
 def rank2() -> None:
@@ -130,28 +132,50 @@ def rank2() -> None:
                 print(mage)
                 print('-----------------')
                 sleep(1)
+                retorno: str = input(
+                    'If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
+                print('----------------------------------/-----------------------------')
+                if retorno == '':
+                    sleep(2)
+                    menu()
         elif wich_class == 'Warrior':
             for warrior in warriors:
                 print('-----------------')
                 print(warrior)
                 print('-----------------')
                 sleep(1)
+                retorno: str = input(
+                    'If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
+                print('----------------------------------/-----------------------------')
+                if retorno == '':
+                    sleep(2)
+                    menu()
         elif wich_class == 'Arquer':
             for arquer in arquers:
                 print('-----------------')
                 print(arquer)
                 print('-----------------')
                 sleep(1)
+                retorno: str = input(
+                    'If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
+                print('----------------------------------/-----------------------------')
+                if retorno == '':
+                    sleep(2)
+                    menu()
         elif wich_class == 'Tank':
             for tank in tanks:
                 print('-----------------')
                 print(tank)
                 print('-----------------')
                 sleep(1)
+                retorno: str = input(
+                    'If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
+                print('----------------------------------/-----------------------------')
+                if retorno == '':
+                    sleep(2)
+                    menu()
         else:
             print('Não existem contas cadastradas.')
-        sleep(2)
-        menu()
 
 
 def sair() -> None:
