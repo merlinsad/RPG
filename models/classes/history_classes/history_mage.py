@@ -1,10 +1,10 @@
 class Mage:
     codigo: int = 1
     level_mage: int = 1
-    atack_mage: int = 250
+    atack_mage: int = 150
     life_mage: int = 400
-    defense_mage: int = 300
-    magic_mage: int = 250
+    defense_mage: int = 250
+    magic_mage: int = 400
 
     def __init__(self: object, historia: str, nome: str, categoria: str) -> None:
         self.__nome: str = nome

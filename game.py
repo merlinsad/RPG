@@ -2,10 +2,10 @@ from time import sleep
 from typing import List
 
 from models.players.jogador import Jogador
-from models.classes.arquer import Arquer
-from models.classes.mage import Mage
-from models.classes.tank import Tank
-from models.classes.warrior import Warrior
+from models.classes.history_classes.history_arquer import Arquer
+from models.classes.history_classes.history_mage import Mage
+from models.classes.history_classes.history_tank import Tank
+from models.classes.history_classes.history_warrior import Warrior
 
 jogadores: List[Jogador] = []
 arquers: List[Arquer] = []
@@ -62,7 +62,7 @@ def cadastrar():
                         f'Qual sua escolha? ')
     print('-------------------')
     sleep(1)
-    categoria: str = input("Qual seu level?\n- Novato\n- Pleno\n- Profissional\n")
+    categoria: str = input("Qual seu level?\n- Novato\n- Pleno\n- Profissional\n---> ")
     print('-------------------')
 
     jogador: Jogador = Jogador(nome, classe, categoria)
@@ -122,17 +122,36 @@ def rank() -> None:
 
 def rank2() -> None:
     if len(jogadores) > 0:
-        print("Listagem de contas")
-
-        for mage in mages:
-            print('-----------------')
-            print(mage)
-            print('-----------------')
-            sleep(1)
-    else:
-        print('Não existem contas cadastradas.')
-    sleep(2)
-    menu()
+        wich_class: str = input("Wich class do you want to see the rank?\n- Mage\n- Warrior\n- Tank\n- Arquer\n--> ")
+        if wich_class == 'Mage':
+            print("Listagem de contas")
+            for mage in mages:
+                print('-----------------')
+                print(mage)
+                print('-----------------')
+                sleep(1)
+        elif wich_class == 'Warrior':
+            for warrior in warriors:
+                print('-----------------')
+                print(warrior)
+                print('-----------------')
+                sleep(1)
+        elif wich_class == 'Arquer':
+            for arquer in arquers:
+                print('-----------------')
+                print(arquer)
+                print('-----------------')
+                sleep(1)
+        elif wich_class == 'Tank':
+            for tank in tanks:
+                print('-----------------')
+                print(tank)
+                print('-----------------')
+                sleep(1)
+        else:
+            print('Não existem contas cadastradas.')
+        sleep(2)
+        menu()
 
 
 def sair() -> None:
