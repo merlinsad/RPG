@@ -1,5 +1,6 @@
 from time import sleep
 from typing import List
+from db.conectar import inserir_conta
 
 from models.players.jogador import Jogador
 from models.classes.history_classes.history_arquer import Arquer
@@ -40,7 +41,7 @@ def menu() -> None:
     elif opcao == 5:
         sair()
     else:
-        print("Nenhuma opção válida selecionada.")
+        print("Choose a option existent.")
         sleep(2)
         menu()
 
@@ -73,41 +74,41 @@ def cadastrar():
     if classe == 'Mago':
         jogadores.append(jogador)
         mages.append(mage)
-        print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
+        inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Guerreiro':
         jogadores.append(jogador)
         warriors.append(warrior)
-        print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
+        inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Arqueiro':
         jogadores.append(jogador)
         arquers.append(arquer)
-        print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
+        inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
         menu()        
     elif classe == 'Tanker':
         jogadores.append(jogador)
         tanks.append(tank)
+        inserir_conta(nome, classe, categoria)
         print('-------------------')
-        print(f'O Jogador {jogador.nome} foi cadastrado com sucesso.')
         print('-------------------')
         sleep(2)
         menu()
     else:
-        print('-----------> Classe inválida. <-------------')
+        print('-----------> Wrong Class. <-------------')
         sleep(3)
         menu()
 
 
 def rank() -> None:
     if len(jogadores) > 0:
-        print("Listagem de contas")
+        print("All players")
     
         for jogador in jogadores:
             print('-----------------')
@@ -115,7 +116,7 @@ def rank() -> None:
             print('-----------------')
             sleep(1)
     else:
-        print('Não existem contas cadastradas.')
+        print('Do not have any accounts in system.')
     retorno: str = input('If you wanna come back to the menu, just press "Enter", if you do now want, just not press ')
     if retorno == '':
         sleep(2)
