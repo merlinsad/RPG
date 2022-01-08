@@ -1,4 +1,5 @@
 class Arquer:
+
     codigo: int = 1
     level_arquer: int = 1
     atack_arquer: int = 250
@@ -6,12 +7,10 @@ class Arquer:
     defense_arquer: int = 300
     magic_arquer: int = 250
 
-    historia: str = 'Being of this class, you will have the best view of all, being possible to hit targets from ' \
-                    'miles away, as you strengthen and improve your skills,\neach time you will be able to ' \
-                    'strengthen your arrows, after all, in the world of Vesquer, all archers came of Elven ' \
-                    'bloodlines, and thus, you can imbue your arrows with your powers,\nbeing possible, make ' \
-                    'them quick as a bullet, set fire to it on contact, and many other skills still hidden, ' \
-                    'so mysterious Elvish people, the Myers.'
+    historia: str = 'They were major deities of nature and fertility. Elves are often shown as young people of great' \
+                    'beauty living among forests, underground, in fountains and other natural places.' \
+                    '\nThey were portrayed as sensitive beings, long-lived or immortal, with magical powers' \
+                    'and a strong connection with nature.'
 
     description: str = 'Being of this class, you will have the best view of all, being possible to hit targets from ' \
                        'miles away, as you strengthen and improve your skills,\neach time you will be able to ' \
@@ -59,7 +58,8 @@ class Arquer:
     def level(self: object) -> int:
         return self.__level
 
+
     def __str__(self: object) -> str:
-        return f'Archers what knowledge: {self.nome}\nHistoria: {self.historia}\nAtaque: {self.ataque}\n' \
+        return f'Historia: {self.historia}\nAtaque: {self.ataque}\n' \
                f'Defesa: {self.defesa}\n' \
                f'Vida: {self.vida}\nMagia: {self.magia}\nDescription: {self.description}'

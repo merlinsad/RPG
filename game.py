@@ -1,3 +1,4 @@
+from os import sep
 from time import sleep
 from typing import List
 from db.conectar import inserir_conta
@@ -8,11 +9,17 @@ from models.classes.history_classes.history_mage import Mage
 from models.classes.history_classes.history_tank import Tank
 from models.classes.history_classes.history_warrior import Warrior
 
+
 jogadores: List[Jogador] = []
 arquers: List[Arquer] = []
 mages: List[Mage] = []
 warriors: List[Warrior] = []
 tanks: List[Tank] = []
+
+archers_name: List = []
+mages_name: List = []
+warriors_name: List = []
+tanks_name: List = []
 
 
 def main() -> None:
@@ -54,9 +61,9 @@ def logar() -> None:
 
 
 def cadastrar():
-    print(' -- Cadastro -- ')
+    print(' -- Register -- ')
 
-    nome: str = input('Qual seu nome? ')
+    nome: str = input("What's your name? ")
     print('-------------------')    
     sleep(1)
     classe: str = input(f'{nome}, e qual seria sua classe?\n- Mago\n- Guerreiro\n- Arqueiro\n- Tanker\n'
@@ -74,6 +81,7 @@ def cadastrar():
     if classe == 'Mago':
         jogadores.append(jogador)
         mages.append(mage)
+        mages_name.append(nome)
         inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
@@ -81,6 +89,7 @@ def cadastrar():
     elif classe == 'Guerreiro':
         jogadores.append(jogador)
         warriors.append(warrior)
+        warriors_name.append(nome)
         inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
@@ -88,6 +97,7 @@ def cadastrar():
     elif classe == 'Arqueiro':
         jogadores.append(jogador)
         arquers.append(arquer)
+        archers_name.append(nome)
         inserir_conta(nome, classe, categoria)
         print('-------------------')
         sleep(2)
@@ -95,6 +105,7 @@ def cadastrar():
     elif classe == 'Tanker':
         jogadores.append(jogador)
         tanks.append(tank)
+        tanks_name.append(nome)
         inserir_conta(nome, classe, categoria)
         print('-------------------')
         print('-------------------')
@@ -130,6 +141,9 @@ def rank2() -> None:
             print("Listagem de contas")
             for mage in mages:
                 print('-----------------')
+                print(f"Archers that we have knowledge:")
+                print(*mages_name, sep=', ')
+                print("----------------")
                 print(mage)
                 print('-----------------')
                 sleep(1)
@@ -142,6 +156,9 @@ def rank2() -> None:
         elif wich_class == 'Warrior':
             for warrior in warriors:
                 print('-----------------')
+                print(f"Archers that we have knowledge:")
+                print(*warriors_name, sep=', ')
+                print("----------------")
                 print(warrior)
                 print('-----------------')
                 sleep(1)
@@ -154,6 +171,9 @@ def rank2() -> None:
         elif wich_class == 'Arquer':
             for arquer in arquers:
                 print('-----------------')
+                print(f"Archers that we have knowledge:")
+                print(*archers_name, sep=', ')
+                print("----------------")
                 print(arquer)
                 print('-----------------')
                 sleep(1)
@@ -166,6 +186,9 @@ def rank2() -> None:
         elif wich_class == 'Tank':
             for tank in tanks:
                 print('-----------------')
+                print(f"Archers that we have knowledge:")
+                print(*tanks_name, sep=', ')
+                print("----------------")
                 print(tank)
                 print('-----------------')
                 sleep(1)

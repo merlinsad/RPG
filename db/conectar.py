@@ -18,12 +18,25 @@ def inserir_level():
 
 
 def inserir_conta(nome, classe, categoria):
-    sql = f"INSERT INTO jogadores (nome, classe, categoria) VALUES (%s,%s,%s)"
-    val = (nome, classe, categoria)
-    mycursor.execute(sql, val)
+    try:
+        sql = f"INSERT INTO jogadores (nome, classe, categoria) VALUES (%s,%s,%s)"
+        val = (nome, classe, categoria)
+        mycursor.execute(sql, val)
 
-    mydb.commit()
+        mydb.commit()
+        print(f"O jogador {nome} foi cadastrado com sucesso!!")
+    except NameError:
+        print("Ocorreu um erro no registro no servidor, tente novamente.")
 
-    print(f"O jogador {nome} foi cadastrado com sucesso!!")
+
+def logar() -> bool:
+    pass
+
+
+def apagar_conta() -> bool:
+    pass
+
+
+
 
 
