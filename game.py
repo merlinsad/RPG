@@ -2,6 +2,7 @@ from os import sep
 from time import sleep
 from typing import List
 from db.conectar import inserir_conta
+from db.conectar import logar
 
 from models.players.jogador import Jogador
 from models.classes.history_classes.history_arquer import Arquer
@@ -38,7 +39,7 @@ def menu() -> None:
     opcao: int = int(input("Escolha a opção: "))
 
     if opcao == 1:
-        logar()
+        logar2()
     elif opcao == 2:
         cadastrar()
     elif opcao == 3:
@@ -53,11 +54,9 @@ def menu() -> None:
         menu()
 
 
-def logar() -> None:
-    if len(jogadores) > 0:
-        pass
-    else:
-        pass
+def logar2() -> None:
+    user: str = input("What's your username? ")
+    logar(user)
 
 
 def cadastrar():

@@ -29,14 +29,16 @@ def inserir_conta(nome, classe, categoria):
         print("Ocorreu um erro no registro no servidor, tente novamente.")
 
 
-def logar() -> bool:
-    pass
+def logar(user):
+
+    sql = f"SELECT * FROM jogadores"
+    val = (user)
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+    print(f"Usuário {user} autenticado.")
 
 
 def apagar_conta() -> bool:
     pass
-
-
-
-
 
